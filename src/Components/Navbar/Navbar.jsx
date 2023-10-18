@@ -4,8 +4,7 @@ const Navbar = () => {
 
     const navbar = <>
         <li> <NavLink to="/" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "hover:text-red-600 text-white bg-red-600 hover:bg-white" : ""
-        }> Home </NavLink></li>
+            isPending ? "pending" : isActive ? "text-white bg-red-600 " : "text-red-600 bg-white"}> Home </NavLink></li>
         {/*   {
             user?.email && <>
                 <li> <NavLink to="/courses"> Courses </NavLink></li>
@@ -13,20 +12,21 @@ const Navbar = () => {
             </>
         } */}
         <li> <NavLink to="/addProduct" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "hover:text-red-600 text-white bg-red-600 hover:bg-white" : ""
+            isPending ? "pending" : isActive ? "text-white bg-red-600 " : "text-red-600 bg-white"
         }> Add Product </NavLink></li>
-        <li> <NavLink to="/cart" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "hover:text-red-600 text-white bg-red-600 hover:bg-white" : ""
+
+        <li> <NavLink to="/myCart" className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-white bg-red-600 " : "text-red-600 bg-white"
         }>My Cart  </NavLink></li>
+
         <li> <NavLink to="/login" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "hover:text-red-600 text-white bg-red-600 hover:bg-white" : ""
+            isPending ? "pending" : isActive ? "text-white bg-red-600 " : "text-red-600 bg-white"
         }> Login </NavLink></li>
+
         <li> <NavLink to="/Register" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "hover:text-red-600 text-white bg-red-600 hover:bg-white" : ""
+            isPending ? "pending" : isActive ? "text-white bg-red-600 " : "text-red-600 bg-white"
         }> Register </NavLink></li>
-        <li> <NavLink to="/contact" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "hover:text-red-600 text-white bg-red-600 hover:bg-white" : ""
-        }> Contact </NavLink></li>
+
     </>
 
 
