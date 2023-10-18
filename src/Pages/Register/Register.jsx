@@ -51,7 +51,7 @@ const Register = () => {
     return (
         <div className="max-w-6xl mx-auto flex flex-col justify-center items-center pb-24 pt-10">
             <h1 className="pb-16 text-3xl font-bold"> Register Now </h1>
-            <form onSubmit={handleRegister} className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <form onSubmit={handleRegister} className="relative flex m-5 md:m-0 w-full md:w-[450px] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                 <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-red-600 to-red-400 bg-clip-border text-white shadow-lg shadow-red-500/40">
                     <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
                         Register Now
