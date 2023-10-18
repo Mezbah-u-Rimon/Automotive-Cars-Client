@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "brand_name": "Mercedes-Benz",
+        "brand_img": "https://logowik.com/content/uploads/images/904_mercedesbenz.jpg"
+    },
+    {
+        "id": 2,
+        "brand_name": "Lamborghini",
+        "brand_img": "https://robbreport.com/wp-content/uploads/2020/05/12.jpg"
+    },
+    {
+        "id": 3,
+        "brand_name": "Ferrari",
+        "brand_img": "https://static.vecteezy.com/system/resources/previews/020/502/451/non_2x/ferrari-logo-brand-car-symbol-with-name-design-italian-automobile-illustration-free-vector.jpg"
+    },
+    {
+        "id": 4,
+        "brand_name": "Toyota",
+        "brand_img": "https://s.yimg.com/ny/api/res/1.2/3hsG0QstTUm3r24GeO2hHA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/creative_bloq_161/280b318b1860d051e8a9b3d903511e08"
+    },
+    {
+        "id": 5,
+        "brand_name": "Rolls-Royce",
+        "brand_img": "https://www.carlogos.org/logo/Rolls-Royce-logo-2048x2048.png"
+    },
+    {
+        "id": 6,
+        "brand_name": "BMW",
+        "brand_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/600px-BMW.svg.png"
+    }
+]

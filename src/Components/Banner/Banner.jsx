@@ -30,7 +30,7 @@ const Banner = () => {
                                     <small className='text-xl font-bold'
                                         data-aos="fade-up"
                                         data-aos-anchor-placement="center-bottom">
-                                        A Legacy of Luxury and Innovation</small>
+                                        A Legacy of Luxury and Innovation </small>
                                     <h1 className='text-4xl md:text-7xl font-bold text-white pt-3 pb-7'
                                         data-aos="zoom-in-right">
                                         Mercedes-Benz
