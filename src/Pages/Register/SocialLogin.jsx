@@ -2,7 +2,8 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-
+import { FcGoogle } from 'react-icons/fc';
+import { BsGithub } from 'react-icons/bs';
 
 const SocialLogin = () => {
     const navigate = useNavigate();
@@ -26,10 +27,10 @@ const SocialLogin = () => {
             <div className="flex justify-around items-center">
                 <button
                     onClick={() => handleSocialLogin(googleLogin)}
-                    className="btn bg-amber-500 text-black">Google </button>
+                    className="btn bg-red-500 text-white hover:text-black"><FcGoogle className="text-3xl"></FcGoogle> Google </button>
                 <button
                     onClick={() => handleSocialLogin(githubLogin)}
-                    className="btn bg-amber-500 text-black">Github </button>
+                    className="btn bg-red-500 text-white hover:text-black"> <BsGithub className="text-3xl"></BsGithub> Github </button>
             </div>
         </div>
     );
