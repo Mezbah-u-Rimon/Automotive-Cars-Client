@@ -2,12 +2,12 @@ import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDtcm7ASKqnSnCgeFRbVzo7kqCE6lmmU80",
-    authDomain: "automotive-car-fbe6c.firebaseapp.com",
-    projectId: "automotive-car-fbe6c",
-    storageBucket: "automotive-car-fbe6c.appspot.com",
-    messagingSenderId: "743619034271",
-    appId: "1:743619034271:web:7905a118e678fc8494b6aa"
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID,
 };
 
 const app = initializeApp(firebaseConfig);
