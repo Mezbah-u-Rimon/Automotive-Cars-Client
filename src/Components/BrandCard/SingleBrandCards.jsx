@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const SingleBrandCards = ({ brand }) => {
-    const { name, brand_name, price, category, rating, details, photo } = brand;
+    const { _id, name, brand_name, price, rating, details, photo } = brand;
 
 
     return (
@@ -13,7 +13,7 @@ const SingleBrandCards = ({ brand }) => {
                     <img
                         src={photo}
                         alt="image"
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-[400px]"
                     />
                 </div>
                 <div className="p-6">
@@ -25,9 +25,9 @@ const SingleBrandCards = ({ brand }) => {
                             <h6 className=" text-xl antialiased font-semibold leading-relaxed tracking-normal text-pink-500">
                                 {rating}
                             </h6>
-                            <div className="rating">
+                            <form className="rating">
                                 <input type="radio" name="rating-1" className="mask mask-star bg-amber-500" checked />
-                            </div>
+                            </form>
 
                         </div>
 
@@ -42,7 +42,7 @@ const SingleBrandCards = ({ brand }) => {
                         {details.slice(0, 100)}
                     </p>
                     <div className='flex flex-wrap gap-4'>
-                        <Link>
+                        <Link to="/carDetails">
                             <button
                                 className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="button"
@@ -65,7 +65,7 @@ const SingleBrandCards = ({ brand }) => {
                                 </svg>
                             </button>
                         </Link>
-                        <Link>
+                        <Link to={`/update/${_id}`}>
                             <button
                                 className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="button"

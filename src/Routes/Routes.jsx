@@ -9,6 +9,7 @@ import MyCart from "../Pages/MyCart/MyCart";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateCar from "../Pages/UpdateCar/UpdateCar";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,14 @@ const router = createBrowserRouter([
                 path: "/singleBrand/:brand_name",
                 element: <PrivateRoute><SingleBrand></SingleBrand></PrivateRoute>,
                 loader: () => fetch(`https://automotive-car-server-kzda2b2nk-rimons-projects-5b7fea00.vercel.app/cars`)
-
+            },
+            {
+                path: "/update/:id",
+                element: <PrivateRoute> <UpdateCar></UpdateCar> </PrivateRoute>,
+                loader: ({ params }) => {
+                    console.log(params.id);
+                    return fetch(`https://automotive-car-server.vercel.app/cars/${params.id}`)
+                }
             },
             {
                 path: "/addProduct",

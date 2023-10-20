@@ -1,8 +1,15 @@
+import { useLoaderData, } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const AddProduct = () => {
-    const handleAddCar = e => {
+const UpdateCar = () => {
+
+    const updateCar = useLoaderData();
+
+    const { _id, name, brand_name, price, category, rating, details, photo } = updateCar || {};
+    // console.log(updateCar);
+
+    const handleUpdatedCar = e => {
         e.preventDefault();
 
         const form = e.target;
@@ -14,26 +21,34 @@ const AddProduct = () => {
         const details = form.details.value;
         const photo = form.photo.value;
 
-        const addNewCar = { name, brand_name, price, category, rating, details, photo }
+        const updateTheCar = { name, brand_name, price, category, rating, details, photo }
 
-        console.log(addNewCar);
+        console.log(updateTheCar);
 
         //send data to the server
-        fetch('https://automotive-car-server-8jtyzxqqq-rimons-projects-5b7fea00.vercel.app/cars', {
-            method: 'POST',
+        fetch(`https://automotive-car-server.vercel.app/cars/${_id}`, {
+            method: 'PUT',
             headers: {
-                "Content-Type": "application/json"
+                'content-type': 'application/json'
             },
-            body: JSON.stringify(addNewCar)
+            body: JSON.stringify(updateTheCar),
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Car added successfully',
+                        text: 'Car updated successfully',
                         icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+                else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Already updated this Car',
+                        icon: 'error',
                         confirmButtonText: 'Cool'
                     })
                 }
@@ -43,11 +58,11 @@ const AddProduct = () => {
 
 
     return (
-        <div style={{ backgroundImage: "url('https://wallpapers.com/images/featured/sports-car-background-ybiazay5uj4y5r5p.jpg')", backgroundSize: "cover", backgroundRepeat: "no-repeat" }} className="w-full h-full">
+        <div style={{ backgroundImage: "url('https://akm-img-a-in.tosshub.com/businesstoday/images/story/202302/202302230723-main-sixteen_nine.jpg?size=948:533')", backgroundSize: "cover", backgroundRepeat: "no-repeat" }} className="w-full h-full">
             <div style={{ backgroundColor: "rgba(0,0,0,0.5)" }} className="h-full w-full">
                 <div className="max-w-6xl mx-auto p-5 md:p-12 lg:px-24 lg:pb-24 lg:pt-12">
-                    <h1 className="text-4xl font-extrabold text-center pb-12 text-white"> ADD YOUR FAVORITE CAR </h1>
-                    <form className="space-y-7" onSubmit={handleAddCar}>
+                    <h1 className="text-4xl font-extrabold text-center pb-12 text-white"> Updated CAR </h1>
+                    <form className="space-y-7" onSubmit={handleUpdatedCar}>
                         {/* form cars name and brand name row */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div className="form-control md:w-full">
@@ -55,7 +70,8 @@ const AddProduct = () => {
                                     <span className="label-text text-white text-lg">Car Name </span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="name" placeholder="Car's Name" className="input input-bordered w-full" required />
+                                    <input type="text" name="name" placeholder="Car's Name"
+                                        defaultValue={name} className="input input-bordered w-full" required />
                                 </label>
                             </div>
                             <div className="form-control md:w-full">
@@ -65,7 +81,7 @@ const AddProduct = () => {
                                     </span>
                                 </label>
                                 <label className="input-group">
-                                    <select name="brand_name" className="select select-bordered w-full">
+                                    <select name="brand_name" className="select select-bordered w-full" defaultValue={brand_name}>
                                         <option disabled selected> Select Your Brand </option>
                                         <option>Mercedes-Benz</option>
                                         <option>Lamborghini</option>
@@ -85,7 +101,7 @@ const AddProduct = () => {
                                     <span className="label-text text-white text-lg">Price  </span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="number" name="price" placeholder="Car Price" className="input input-bordered w-full" required />
+                                    <input type="number" name="price" placeholder="Car Price" className="input input-bordered w-full" defaultValue={price} required />
                                 </label>
                             </div>
                             <div className="form-control md:w-full">
@@ -95,7 +111,8 @@ const AddProduct = () => {
                                     </span>
                                 </label>
                                 <label className="input-group">
-                                    <select name="category" className="select select-bordered w-full">
+                                    <select name="category"
+                                        defaultValue={category} className="select select-bordered w-full">
                                         <option disabled selected> Select Your Category </option>
                                         <option>Mercedes-Benz</option>
                                         <option>Lamborghini</option>
@@ -116,7 +133,7 @@ const AddProduct = () => {
                                 </label>
                                 <label className="input-group">
                                     <label className="input-group">
-                                        <input type="number" name="rating" placeholder="Review (only 1 to 5) " className="input input-bordered w-full" required />
+                                        <input type="number" name="rating" defaultValue={rating} placeholder="Review (only 1 to 5) " className="input input-bordered w-full" required />
                                     </label>
                                 </label>
                             </div>
@@ -125,7 +142,8 @@ const AddProduct = () => {
                                     <span className="label-text text-white text-lg">Description  </span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="details" placeholder="Description" className="input input-bordered w-full" required />
+                                    <input type="text" name="details" defaultValue={details}
+                                        placeholder="Description" className="input input-bordered w-full" required />
                                 </label>
                             </div>
                         </div>
@@ -137,11 +155,11 @@ const AddProduct = () => {
                                     <span className="label-text text-white text-lg">Photo URL </span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" required />
+                                    <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered w-full" required />
                                 </label>
                             </div>
                         </div>
-                        <input className="btn btn-block bg-red-400" type="submit" value="Add Car" />
+                        <input className="btn btn-block bg-red-400" type="submit" value="Update Car" />
                     </form>
                 </div>
             </div>
@@ -149,4 +167,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default UpdateCar;
