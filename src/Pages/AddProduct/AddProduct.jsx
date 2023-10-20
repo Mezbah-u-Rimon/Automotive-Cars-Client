@@ -19,7 +19,7 @@ const AddProduct = () => {
         console.log(addNewCar);
 
         //send data to the server
-        fetch('http://localhost:5000/cars', {
+        fetch('https://automotive-car-server-8jtyzxqqq-rimons-projects-5b7fea00.vercel.app/cars', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -32,7 +32,7 @@ const AddProduct = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Coffee added successfully',
+                        text: 'Car added successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
@@ -45,7 +45,7 @@ const AddProduct = () => {
     return (
         <div style={{ backgroundImage: "url('https://wallpapers.com/images/featured/sports-car-background-ybiazay5uj4y5r5p.jpg')", backgroundSize: "cover", backgroundRepeat: "no-repeat" }} className="w-full h-full">
             <div style={{ backgroundColor: "rgba(0,0,0,0.5)" }} className="h-full w-full">
-                <div className="max-w-6xl mx-auto p-5 md:p-12 lg:px-24 lg:pb-24 lg:pt-12 text-white">
+                <div className="max-w-6xl mx-auto p-5 md:p-12 lg:px-24 lg:pb-24 lg:pt-12">
                     <h1 className="text-3xl font-extrabold text-center pb-12 text-white"> ADD YOUR FAVORITE CAR </h1>
                     <form className="space-y-7" onSubmit={handleAddCar}>
                         {/* form cars name and brand name row */}
@@ -65,7 +65,7 @@ const AddProduct = () => {
                                     </span>
                                 </label>
                                 <label className="input-group">
-                                    <select name="brand_name" className="select select-bordered w-full" required>
+                                    <select name="brand_name" className="select select-bordered w-full">
                                         <option disabled selected> Select Your Brand </option>
                                         <option>Mercedes-Benz</option>
                                         <option>Lamborghini</option>
@@ -95,7 +95,7 @@ const AddProduct = () => {
                                     </span>
                                 </label>
                                 <label className="input-group">
-                                    <select name="category" className="select select-bordered w-full" required>
+                                    <select name="category" className="select select-bordered w-full">
                                         <option disabled selected> Select Your Category </option>
                                         <option>Mercedes-Benz</option>
                                         <option>Lamborghini</option>

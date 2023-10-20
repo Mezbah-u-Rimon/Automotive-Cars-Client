@@ -5,7 +5,8 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
 
-const Banner = () => {
+const Advertise = () => {
+
     return (
         <div className='text-white'>
             <div>
@@ -170,4 +171,4 @@ const Banner = () => {
     );
 };
 
-export default Banner;
+export default Advertise;

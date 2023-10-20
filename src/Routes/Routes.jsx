@@ -23,10 +23,8 @@ const router = createBrowserRouter([
             {
                 path: "/singleBrand/:brand_name",
                 element: <PrivateRoute><SingleBrand></SingleBrand></PrivateRoute>,
-                loader: ({ params }) => {
-                    console.log(params);
-                    return fetch('')
-                }
+                loader: () => fetch(`https://automotive-car-server-kzda2b2nk-rimons-projects-5b7fea00.vercel.app/cars`)
+
             },
             {
                 path: "/addProduct",
