@@ -37,7 +37,7 @@ const router = createBrowserRouter([
                 path: "/update/:id",
                 element: <PrivateRoute> <UpdateCar></UpdateCar> </PrivateRoute>,
                 loader: ({ params }) => {
-                    console.log(params.id);
+                    // console.log(params.id);
                     return fetch(`https://automotive-car-server.vercel.app/cars/${params.id}`)
                 }
             },
@@ -47,13 +47,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myCart",
-                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
-            },
-            {
-                path: "/myCart/:id",
-                element: <PrivateRoute><CarDetails></CarDetails> </PrivateRoute>,
-                loader: ({ params }) => fetch(`https://automotive-car-server.vercel.app/cars/${params.id}`)
-
+                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
+                loader: () => fetch('https://automotive-car-server.vercel.app/myCart')
             },
             {
                 path: "/login",

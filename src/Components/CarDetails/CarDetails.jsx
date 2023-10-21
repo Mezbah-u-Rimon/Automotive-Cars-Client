@@ -53,7 +53,6 @@ const CarDetails = () => {
                             <div className='flex gap-2 '>
                                 <h6 className=" text-2xl font-semibold text-amber-500">
                                     {rating}
-
                                 </h6>
                                 <AiTwotoneStar className="text-3xl text-amber-400"></AiTwotoneStar>
                             </div>
