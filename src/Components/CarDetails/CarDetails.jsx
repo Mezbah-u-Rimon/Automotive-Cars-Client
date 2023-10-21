@@ -30,6 +30,7 @@ const CarDetails = () => {
                         confirmButtonText: 'Cool'
                     })
                 }
+
             })
     }
 

@@ -6,7 +6,11 @@ const AllCart = ({ allCart, myAllCarts, setMyAllCarts }) => {
 
     const { _id, name, brand_name, price, rating, photo } = allCart || {};
 
-    const handleDelete = _id => {
+
+    const handleDelete = (id) => {
+        // console.log(_id);
+        // console.log(id);
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to delete this!",
@@ -18,7 +22,7 @@ const AllCart = ({ allCart, myAllCarts, setMyAllCarts }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                fetch(`https://automotive-car-server-d30y1f3s1-rimons-projects-5b7fea00.vercel.app/myCart/${_id}`, {
+                fetch(`https://automotive-car-server.vercel.app/myCart/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -30,7 +34,7 @@ const AllCart = ({ allCart, myAllCarts, setMyAllCarts }) => {
                                 'Your selected Car has been deleted.',
                                 'success'
                             )
-                            const remaining = myAllCarts?.filter(cart => cart._id !== _id);
+                            const remaining = myAllCarts?.filter(cart => cart._id !== id);
                             setMyAllCarts(remaining)
                         }
                     })

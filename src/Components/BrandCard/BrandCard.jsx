@@ -13,9 +13,9 @@ const BrandCard = () => {
 
     return (
         <div className="mx-auto max-w-6xl my-24 text-center px-5 lg:px-0">
-            <h5 className="text-xl font-bold">Check out our recent cars
+            <h5 className="font-bold">Check out our recent cars
             </h5>
-            <h1 className="text-5xl font-bold mb-10"> FEATURE <span className="text-red-600">CAR </span> </h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-10"> FEATURE <span className="text-red-600">CAR </span> </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
