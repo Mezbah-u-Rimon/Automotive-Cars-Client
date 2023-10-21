@@ -8,8 +8,12 @@ const About = () => {
     return (
         <div className="max-w-6xl mx-auto my-24 px-10 lg:px-0">
             <div className="text-center space-y-4 mb-12">
-                <h1 className="text-3xl md:text-5xl font-bold"> <span className="text-red-600"> About</span> Us </h1>
-                <p className="text-gray-500 w-full md:w-10/12 lg:w-1/2 mx-auto ">
+                <h1 className="text-3xl md:text-5xl font-bold"
+                    data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500"
+                > <span className="text-red-600"> About</span> Us </h1>
+                <p data-aos="fade-down" className="text-gray-500 w-full md:w-10/12 lg:w-1/2 mx-auto ">
                     At Automotive Company, we are passionate about all things automotive. Our journey began with a shared love for cars and a commitment to offering our customers the very best in the world of automobiles.
                 </p>
             </div>

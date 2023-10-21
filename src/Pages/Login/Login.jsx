@@ -45,6 +45,7 @@ const Login = () => {
 
 
     return (
+
         <div className="max-w-6xl mx-auto flex flex-col justify-center items-center py-24 ">
             <h1 className="pb-16 text-3xl font-bold"> Login Your <span className="text-red-600">Account</span> </h1>
             <form onSubmit={handleLogin} className="relative flex m-5 md:m-0 w-full md:w-[450px] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -130,6 +131,7 @@ const Login = () => {
                 <SocialLogin></SocialLogin>
             </form>
         </div>
+
     );
 };
 

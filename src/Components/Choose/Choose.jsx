@@ -4,8 +4,11 @@ const Choose = () => {
     return (
         <div className="max-w-6xl mx-auto my-24">
             <div className="text-center">
-                <p className="text-gray-500 text-center">Because We are ultra creative agency</p>
-                <h1 className="text-3xl md:text-5xl font-bold mb-10"> WHY <span className="text-red-600">CHOOSE</span> US </h1>
+                <p data-aos="fade-down" className="text-gray-500 text-center">Because We are ultra creative agency</p>
+                <h1 data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500"
+                    className="text-3xl md:text-5xl font-bold mb-10"> WHY <span className="text-red-600">CHOOSE</span> US </h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="mx-auto text-center p-4">
