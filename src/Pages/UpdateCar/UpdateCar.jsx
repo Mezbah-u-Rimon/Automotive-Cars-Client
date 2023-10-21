@@ -58,7 +58,7 @@ const UpdateCar = () => {
 
 
     return (
-        <div style={{ backgroundImage: "url('https://akm-img-a-in.tosshub.com/businesstoday/images/story/202302/202302230723-main-sixteen_nine.jpg?size=948:533')", backgroundSize: "cover", backgroundRepeat: "no-repeat" }} className="w-full h-full">
+        <div style={{ backgroundImage: "url('https://www.supercars.net/blog/wp-content/uploads/2022/02/Ferrari-Monza_SP2.jpg')", backgroundSize: "cover", backgroundRepeat: "no-repeat" }} className="w-full h-full">
             <div style={{ backgroundColor: "rgba(0,0,0,0.5)" }} className="h-full w-full">
                 <div className="max-w-6xl mx-auto p-5 md:p-12 lg:px-24 lg:pb-24 lg:pt-12">
                     <h1 className="text-4xl font-extrabold text-center pb-12 text-white"> Updated CAR </h1>

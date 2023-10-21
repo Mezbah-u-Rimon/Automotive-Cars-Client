@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
+import { AiTwotoneStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 
 const SingleBrandCards = ({ brand }) => {
     const { _id, name, brand_name, price, rating, details, photo } = brand;
-
+    console.log(brand);
 
     return (
-        <div className=''>
+        <div>
             <div className="relative flex w-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div className="relative m-0 overflow-hidden text-gray-700 bg-white shrink-0 rounded-xl bg-clip-border">
+                <div className="relative m-0 overflow-hidden text-gray-700 bg-white shrink-0 rounded-xl bg-clip-border lg:h-[250px]">
                     <img
                         src={photo}
                         alt="image"
-                        className="object-cover w-full h-[400px]"
+                        className="object-cover w-full "
                     />
                 </div>
                 <div className="p-6">
@@ -22,13 +23,10 @@ const SingleBrandCards = ({ brand }) => {
                             {brand_name}
                         </h6>
                         <div className='flex gap-2 '>
-                            <h6 className=" text-xl antialiased font-semibold leading-relaxed tracking-normal text-pink-500">
+                            <h6 className=" text-2xl font-semibold text-amber-500">
                                 {rating}
                             </h6>
-                            <form className="rating">
-                                <input type="radio" name="rating-1" className="mask mask-star bg-amber-500" checked />
-                            </form>
-
+                            <AiTwotoneStar className="text-3xl text-amber-400"></AiTwotoneStar>
                         </div>
 
                     </div>
@@ -42,7 +40,7 @@ const SingleBrandCards = ({ brand }) => {
                         {details.slice(0, 100)}
                     </p>
                     <div className='flex flex-wrap gap-4'>
-                        <Link to="/carDetails">
+                        <Link to={`/carDetails/${_id}`}>
                             <button
                                 className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="button"

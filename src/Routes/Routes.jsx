@@ -10,6 +10,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateCar from "../Pages/UpdateCar/UpdateCar";
+import CarDetails from "../Components/CarDetails/CarDetails";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,12 @@ const router = createBrowserRouter([
                 loader: () => fetch(`https://automotive-car-server-kzda2b2nk-rimons-projects-5b7fea00.vercel.app/cars`)
             },
             {
+                path: "/carDetails/:id",
+                element: <PrivateRoute><CarDetails></CarDetails> </PrivateRoute>,
+                loader: ({ params }) => fetch(`https://automotive-car-server.vercel.app/cars/${params.id}`)
+
+            },
+            {
                 path: "/update/:id",
                 element: <PrivateRoute> <UpdateCar></UpdateCar> </PrivateRoute>,
                 loader: ({ params }) => {
@@ -41,6 +48,12 @@ const router = createBrowserRouter([
             {
                 path: "/myCart",
                 element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+            },
+            {
+                path: "/myCart/:id",
+                element: <PrivateRoute><CarDetails></CarDetails> </PrivateRoute>,
+                loader: ({ params }) => fetch(`https://automotive-car-server.vercel.app/cars/${params.id}`)
+
             },
             {
                 path: "/login",
