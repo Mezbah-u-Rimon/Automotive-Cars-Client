@@ -1,10 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import AllCart from "./AllCart";
+import { useState } from "react";
 
 
 const MyCart = () => {
     const myCart = useLoaderData();
-    console.log(myCart);
+    const [myAllCarts, setMyAllCarts] = useState(myCart);
 
     return (
         <div className="max-w-6xl mx-auto pt-12 pb-24 px-5">
@@ -13,9 +14,12 @@ const MyCart = () => {
             </div>
             <div>
                 {
-                    myCart?.map(allCart => <AllCart
+                    myAllCarts?.map(allCart => <AllCart
                         key={allCart._id}
-                        allCart={allCart}> </AllCart>)
+                        allCart={allCart}
+                        myAllCarts={myAllCarts}
+                        setMyAllCarts={setMyAllCarts}
+                    > </AllCart>)
                 }
             </div>
         </div>

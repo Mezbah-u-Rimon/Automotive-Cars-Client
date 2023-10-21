@@ -1,9 +1,42 @@
 import PropTypes from 'prop-types';
 import { AiOutlineDelete, AiTwotoneStar } from 'react-icons/ai';
+import Swal from 'sweetalert2';
 
-const AllCart = ({ allCart }) => {
+const AllCart = ({ allCart, myAllCarts, setMyAllCarts }) => {
 
     const { _id, name, brand_name, price, rating, photo } = allCart || {};
+
+    const handleDelete = _id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                fetch(`https://automotive-car-server-d30y1f3s1-rimons-projects-5b7fea00.vercel.app/myCart/${_id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your selected Car has been deleted.',
+                                'success'
+                            )
+                            const remaining = myAllCarts?.filter(cart => cart._id !== _id);
+                            setMyAllCarts(remaining)
+                        }
+                    })
+            }
+        })
+    }
 
     return (
         <div className='flex flex-col justify-center md:flex-row md:justify-between border-y py-8 gap-4'>
@@ -23,14 +56,16 @@ const AllCart = ({ allCart }) => {
                 </div>
             </div>
             <div className='md:w-[200px] w-full my-auto text-center'>
-                <button className='text-base flex items-center gap-2 px-6 py-3 rounded-lg border-red-500 border text-red-500 shadow-lg hover:shadow-pink-300'> <AiOutlineDelete className='text-2xl'></AiOutlineDelete> Remove Cart</button>
+                <button onClick={() => handleDelete(_id)} className='text-base flex items-center gap-2 px-6 py-3 rounded-lg border-red-500 border text-red-500 shadow-lg hover:shadow-pink-300'> <AiOutlineDelete className='text-2xl'></AiOutlineDelete> Remove Cart</button>
             </div>
         </div>
     );
 };
 
 AllCart.propTypes = {
-    allCart: PropTypes.object.isRequired
+    allCart: PropTypes.object.isRequired,
+    myAllCarts: PropTypes.array.isRequired,
+    setMyAllCarts: PropTypes.func.isRequired,
 }
 
 export default AllCart;

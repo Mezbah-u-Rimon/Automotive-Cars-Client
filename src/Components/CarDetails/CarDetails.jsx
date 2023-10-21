@@ -70,7 +70,7 @@ const CarDetails = () => {
                         </p>
 
                         <button onClick={() => handleAddToCart(_id)} className="px-6 py-3 text-base text-center bg-red-600 btn hover:text-black text-white">
-                            <BsCart4 className="text-2xl"></BsCart4> More Details
+                            <BsCart4 className="text-2xl"></BsCart4> Add To Cart
                         </button>
 
                     </div>
