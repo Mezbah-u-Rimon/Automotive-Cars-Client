@@ -37,5 +37,5 @@ Next page is login page and register page. A form field is provided on the regis
 </ul>
 
 <h1 className="text-5xl"> Live Link :
-<a href="https://automotive-car-fbe6c.web.app" target="_blank" rel="brand"> https://automotive-car-fbe6c.web.app  </a>
+<a href="https://automotive-cars.netlify.app" target="_blank" rel="brand"> https://automotive-cars.netlify.app  </a>
 </h1>
